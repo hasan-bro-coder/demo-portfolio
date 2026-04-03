@@ -1,0 +1,53 @@
+---
+---
+<main id="hero" class="w-screen h-screen relative overflow-hidden">
+  <img
+    src="hero.jpg"
+    alt="hero image"
+    id="hero-image"
+    class="w-screen h-screen object-fill"
+  />
+  <!-- <div class="absolute top-[70vh] md:left-8 left-4"> -->
+  <div id="main-con" class="absolute top-0 w-screen h-screen flex justify-center items-center flex-col">
+    <h1 id="main-title" class="text-5xl">Capture Memories</h1>
+    <!-- <button id="main-button" class="">see more</button> -->
+  </div>
+</main>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+//   gsap.to("#hero", {
+  gsap.to("#hero-image", {
+    scrollTrigger: {
+      start: "top top",
+      trigger: "#hero-image",
+      scrub: true,
+    },
+    y: 250,
+  });
+//   gsap.to("#main-con", {
+//     scrollTrigger: {
+//       start: "top top",
+//       trigger: "#hero-image",
+//       scrub: true,
+//     },
+//     y: 150,
+//   });
+</script>
+
+<style>
+    #main-con #main-title , #main-con button{
+        font-family: "EB Garamond", serif;
+        font-optical-sizing: auto;
+        font-weight: 100;
+        font-style: normal;
+        mix-blend-mode: difference;
+        color: rgb(148, 148, 148);
+    }
+    #main-button{
+        text-decoration: underline;
+    }
+</style>
