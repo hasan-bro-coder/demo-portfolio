@@ -7,6 +7,12 @@
   color: white;
 }
 
+.light {
+  color-scheme: dark;
+  background-color: #cecece;
+  color: #000000;
+}
+
 html,
 body {
   margin: 0;
