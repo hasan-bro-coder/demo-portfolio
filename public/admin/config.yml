@@ -1,0 +1,28 @@
+local_backend: true
+backend:
+  name: git-gateway
+  branch: main
+media_folder: "public/images"
+public_folder: "/images"
+folder: "src/content/gallery"
+
+collections:
+  - name: "gallery"
+    label: "Gallery"
+    folder: "src/content/gallery"
+    create: true
+    slug: "{{slug}}"
+
+    fields:
+      - { label: "Category Title", name: "title", widget: "string" }
+
+      - label: "Images"
+        name: "images"
+        widget: "list"
+        fields:
+          - { label: "Image", name: "src", widget: "image" }
+          - { label: "Alt Text", name: "alt", widget: "string", required: false }
+
+      - { label: "Featured", name: "featured", widget: "boolean", default: false }
+
+      - { label: "Date", name: "date", widget: "datetime", required: false }

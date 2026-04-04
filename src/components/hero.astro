@@ -1,5 +1,6 @@
 ---
 ---
+<div class="con w-screen h-screen relative overflow-hidden">
 <main id="hero" class="w-screen h-screen relative overflow-hidden">
   <img
     src="hero.jpg"
@@ -9,11 +10,13 @@
   />
   <!-- <div class="absolute top-[70vh] md:left-8 left-4"> -->
   <div id="main-con" class="absolute top-0 w-screen h-screen flex justify-center items-center flex-col">
-    <h1 id="main-title" class="text-5xl">Capture Memories</h1>
+    <h1 id="main-title" class="md:text-6xl text-4xl">Capture Memories</h1>
+    <h1 id="main-title" class="text-sm">with</h1>
+    <h1 id="main-title" class="md:text-2xl text-xl">hasanur rahman</h1>
     <!-- <button id="main-button" class="">see more</button> -->
   </div>
 </main>
-
+</div>
 <script>
   import gsap from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -26,7 +29,7 @@
       trigger: "#hero-image",
       scrub: true,
     },
-    y: 300,
+    y: 350,
   });
 //   gsap.to("#main-con", {
 //     scrollTrigger: {
@@ -40,12 +43,13 @@
 
 <style>
     #main-con #main-title , #main-con button{
-        font-family: "EB Garamond", serif;
-        font-optical-sizing: auto;
+      font-optical-sizing: auto;
+      font-family: "EB Garamond", serif;
+      font-family: "ColitezSerif", serif;
         font-weight: 100;
         font-style: normal;
         mix-blend-mode: difference;
-        color: rgb(148, 148, 148);
+        color: rgb(161, 161, 161);
     }
     #main-button{
         text-decoration: underline;

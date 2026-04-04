@@ -1,0 +1,90 @@
+---
+---
+<div class="con w-screen relative overflow-hidden">
+<section id="contact" class="w-screen py-24 flex flex-col items-center">
+  <h1 class="text-6xl mt-8 mb-16">Contact</h1>
+
+  <form
+    id="contact-form"
+    class="columns-1 md:columns-2 gap-6 w-[80vw] max-w-3xl"
+  >
+    <div class="mb-6 break-inside-avoid">
+      <label class="block text-sm mb-2 opacity-60">Name</label>
+      <input
+        type="text"
+        name="name"
+        required
+        class="w-full bg-transparent border border-white/20 rounded-xl px-4 py-3 focus:outline-none focus:border-white/60 transition-colors"
+      />
+    </div>
+
+    <div class="mb-6 break-inside-avoid">
+      <label class="block text-sm mb-2 opacity-60">Email</label>
+      <input
+        type="email"
+        name="email"
+        required
+        class="w-full bg-transparent border border-white/20 rounded-xl px-4 py-3 focus:outline-none focus:border-white/60 transition-colors"
+      />
+    </div>
+
+    <div class="mb-6 break-inside-avoid">
+      <label class="block text-sm mb-2 opacity-60">Subject</label>
+      <input
+        type="text"
+        name="subject"
+        class="w-full bg-transparent border border-white/20 rounded-xl px-4 py-3 focus:outline-none focus:border-white/60 transition-colors"
+      />
+    </div>
+
+    <div class="mb-6 break-inside-avoid md:col-span-2">
+      <label class="block text-sm mb-2 opacity-60">Message</label>
+      <textarea
+        name="message"
+        rows="5"
+        required
+        class="w-full bg-transparent border border-white/20 rounded-xl px-4 py-3 focus:outline-none focus:border-white/60 transition-colors resize-none"
+      ></textarea>
+    </div>
+
+    <div class="mb-6 break-inside-avoid">
+      <button
+        type="submit"
+        class="w-full border border-white/20 rounded-xl px-6 py-3 hover:bg-white hover:text-black transition-colors"
+      >
+        Send Message
+      </button>
+    </div>
+
+    <p id="form-status" class="text-sm opacity-60 break-inside-avoid self-center"></p>
+  </form>
+</section>
+</div>
+
+<script>
+  const form = document.getElementById("contact-form") as HTMLFormElement;
+  const status = document.getElementById("form-status")!;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const data = new FormData(form);
+
+    // --- Option 1: Formspree (easiest, free tier available) ---
+    // 1. Sign up at formspree.io
+    // 2. Create a form and get your endpoint
+    // 3. Replace the URL below
+    const res = await fetch("https://formspree.io/f/maqlprrk", {
+      method: "POST",
+      body: data,
+      headers: { Accept: "application/json" },
+    });
+
+    if (res.ok) {
+      status.textContent = "Message sent!";
+      form.reset();
+    } else {
+      status.textContent = "Something went wrong. Try again.";
+    }
+  });
+</script>

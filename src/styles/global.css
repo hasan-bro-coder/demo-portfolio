@@ -1,6 +1,23 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
+
+@font-face {
+  font-family: 'ColitezSerif';
+  src: url('fonts/ColitezSerif-Italic.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Improves performance by showing fallback font while loading */
+}
+
+@font-face {
+  font-family: 'ZTOtez';
+  src: url('fonts/ZTOtez-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Improves performance by showing fallback font while loading */
+}
+
 .dark {
   color-scheme: dark;
   background-color: #1b1d1e;
@@ -29,6 +46,12 @@ body {
   mix-blend-mode: difference;
   /* filter: invert(100%); */
   /* backdrop-filter: invert(100%); */
+}
+
+.dark button{
+  border: 1px solid white;
+  outline: none;
+  
 }
 /* #hero svg{
   width: 32px;

@@ -1,4 +1,6 @@
 ---
+import Footer from "../components/footer.astro";
+import Nav from "../components/nav.astro";
 import "../styles/global.css";
 ---
 
@@ -28,8 +30,11 @@ import "../styles/global.css";
     <title>Demo Portfolio</title>
   </head>
   <body class="">
+	  <Nav></Nav>
     <slot />
+    <Footer></Footer>
   </body>
+  <!-- <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script> -->
   <script>
     import gsap from "gsap";
     import { ScrollTrigger } from "gsap/ScrollTrigger";
