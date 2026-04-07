@@ -9,10 +9,10 @@ const gallery = await getCollection("gallery");
   <main class="dark min-h-screen pt-32 pb-16 px-6 md:px-12">
     
     <header class="text-center mb-20">
-      <h1 class="text-white text-4xl md:text-5xl font-serif tracking-[0.2em] uppercase mb-4">
-        Collections
+      <h1 class="text-white font-ztotez text-4xl md:text-5xl tracking-[0.2em] uppercase mb-4">
+        Gallery
       </h1>
-      <p class="text-[#d9c5b2]/60 italic text-sm">Select a story to explore</p>
+      <p class="text-[#d9c5b2]/60 font-colitezserif text-sm">Select a memory to explore</p>
     </header>
 
     <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-7xl mx-auto category-grid">
@@ -31,7 +31,7 @@ const gallery = await getCollection("gallery");
             <div class="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors duration-500"></div>
 
             <div class="absolute inset-0 flex flex-col justify-center items-center p-4 text-center">
-              <h2 class="text-lg md:text-xl font-serif tracking-widest uppercase transition-transform duration-500 group-hover:-translate-y-2">
+              <h2 class="text-lg md:text-xl font-colitezserif tracking-widest uppercase transition-transform duration-500 group-hover:-translate-y-2">
                 {category.data.title}
               </h2>
               

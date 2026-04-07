@@ -5,6 +5,7 @@
 <div
   id="contact"
   class="con w-screen min-h-screen h-[150vh] md:h-screen relative overflow-hidden"
+  transition:persist transition:animate="none"
 >
   <section id="contact" class="w-screen py-24 flex flex-col items-center">
     <h1 class="text-6xl mt-8 mb-16">Contact</h1>
@@ -57,7 +58,9 @@
           class="w-full bg-transparent border border-white/20 rounded-xl px-4 py-3 focus:outline-none focus:border-white/60 transition-colors resize-none"
         ></textarea>
       </div>
-      <div data-netlify-recaptcha="true"></div>
+
+      <div data-netlify-recaptcha="true" class="g-recaptcha"></div>
+
       <div class="mb-6 break-inside-avoid">
         <button
           type="submit"
@@ -75,6 +78,17 @@
     </form>
   </section>
 </div>
+
+
+<style>
+  .g-recaptcha{
+    margin-bottom: 8px;
+    background-color: #1b1d1e;
+    filter: invert(100) hue-rotate(180deg) saturate(60%);
+  }
+
+</style>
+
 
 <script>
   // const form = document.getElementById("contact-form") as HTMLFormElement;

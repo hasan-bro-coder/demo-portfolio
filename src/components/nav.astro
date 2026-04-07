@@ -1,12 +1,13 @@
 ---
 ---
-<nav id="navbar" class="fixed top-0 flex justify-between md:px-8 px-4 items-center w-screen h-12">
+<nav id="navbar" transition:persist transition:animate="none" class="fixed top-0 flex justify-between md:px-8 px-4 items-center w-screen h-12">
     <div id="nav-name">
         Hasanur Rahman
     </div>
-    <div id="nav-links" class="flex gap-8">
+    <div id="nav-links" class="flex sm:gap-8 gap-4">
+        <a href="/" class="sm:inline">Home</a>
         <a href="/#about-con" class="hidden sm:inline">About</a>
-        <a href="/gallery" class="hidden sm:inline">Gallery</a>
+        <a href="/gallery" class="sm:inline">Gallery</a>
         <!-- <a href="">Contact</a> -->
     </div>
     <a href="#contact" class="dark rounded-sm p-1 px-2" id="contact-button">Contact Me</a>

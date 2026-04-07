@@ -24,10 +24,10 @@ const images = (await getCollection("gallery")).filter(d=>d.data.title == galler
     
     <header id="gallery-header" class="text-center mb-16 md:mb-32">
       <h1 class="text-4xl md:text-5xl tracking-widest uppercase mb-4 font-serif">
-        Adventures Captured
+        Memories Captured
       </h1>
       <p class="text-[#d9c5b2]/60 text-sm md:text-base max-w-lg mx-auto italic">
-        A curation of moments from the wild.
+        A curation of moments from the world.
       </p>
     </header>
 
@@ -56,27 +56,30 @@ const images = (await getCollection("gallery")).filter(d=>d.data.title == galler
 </Layout>
 
 <script>
-  import { gsap } from "gsap";
+ import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // Using .batch is much better for performance when you have many images
-  ScrollTrigger.batch(".gallery-item", {
-    start: "top 95%",
-    onEnter: (elements) => {
-      gsap.to(elements, {
-        opacity: 1,
-        y: 0,
-        stagger: 0.15,
-        duration: 0.8,
-        ease: "power2.out",
-        overwrite: true
+  const initGalleryAnimation = () => {
+    ScrollTrigger.getAll().forEach(t => t.kill());
+    const items = document.querySelectorAll(".gallery-item");
+    
+    if (items.length > 0) {
+      ScrollTrigger.refresh();
+
+      ScrollTrigger.batch(".gallery-item", {
+        start: "top 95%",
+        end: "bottom 5%", // Triggers when the bottom of the image reaches 5% from the top
+        onEnter: (batch) => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.1, overwrite: true }),
+        onLeave: (batch) => gsap.to(batch, { opacity: 0, y: -20, overwrite: true }), // Fades out when scrolling up past it
+        onEnterBack: (batch) => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.1, overwrite: true }),
+        onLeaveBack: (batch) => gsap.to(batch, { opacity: 0, y: 20, overwrite: true }) // Fades out when scrolling down past it
       });
-    },
-    // Optional: Reset when scrolling back up so they "re-animate"
-    onLeaveBack: (elements) => {
-      gsap.set(elements, { opacity: 0, y: 30 });
     }
-  });
+  };
+
+  initGalleryAnimation();
+  document.addEventListener("astro:after-swap", initGalleryAnimation);
+  document.addEventListener("astro:page-load", initGalleryAnimation);
 </script>

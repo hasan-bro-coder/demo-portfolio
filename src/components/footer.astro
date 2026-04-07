@@ -2,7 +2,7 @@
 // You can import images or data here if needed
 const currentYear = new Date().getFullYear();
 ---
-<footer class="light py-12 px-8  w-screen">
+<footer class="light py-12 px-8  w-screen" transition:persist transition:animate="none">
   <div class="max-w-7xl mx-auto">
     <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
       
@@ -15,48 +15,25 @@ const currentYear = new Date().getFullYear();
         
         <nav class="flex flex-col gap-1 text-sm tracking-wide uppercase">
           <a href="/" class="hover:text-white transition-colors">home</a>
-          <a href="/about" class="hover:text-white transition-colors">about</a>
-          <a href="/faq" class="hover:text-white transition-colors">info & faq</a>
-          <a href="/blog" class="hover:text-white transition-colors">blog</a>
-          <a href="/shop" class="hover:text-white transition-colors">print shop</a>
-          <a href="/contact" class="hover:text-white transition-colors">contact</a>
+          <a href="/#about" class="hover:text-white transition-colors">about</a>
+          <a href="/#contact" class="hover:text-white transition-colors">contact</a>
+          <a href="/#gallery" class="hover:text-white transition-colors">featured photos</a>
+          <a href="/gallery" class="hover:text-white transition-colors">all photos</a>
+          <!-- <a href="/faq" class="hover:text-white transition-colors">info & faq</a> -->
+          <!-- <a href="/blog" class="hover:text-white transition-colors">blog</a> -->
+          <!-- <a href="/shop" class="hover:text-white transition-colors">print shop</a> -->
         </nav>
       </div>
-
-      <div class="flex flex-col items-center text-center">
+      <p class="text-3xl">PHOTOGRAPHER</p>
+      <div class="flex flex-col items-center text-center justify-center">
         <img src="/pfp.jpg" alt="The Hearnes Photography" class="h-32 w-auto mb-4" />
       </div>
 
-      <div class="grid grid-cols-3 grid-rows-2 gap-1 w-full max-w-[300px]">
-        <div class="aspect-square bg-gray-500 overflow-hidden">
-            <img src="/prop.jpg" class="object-cover h-full w-full" />
-        </div>
-        <div class="aspect-square bg-gray-500 overflow-hidden">
-            <img src="/prop.jpg" class="object-cover h-full w-full" />
-        </div>
-        <div class="aspect-square bg-gray-500 overflow-hidden relative">
-            <img src="/prop.jpg" class="object-cover h-full w-full" />
-            <div class="absolute inset-0 flex items-center justify-center bg-black/10">
-                <div class="w-0 h-0 border-t-[8px] border-t-transparent border-l-[12px] border-l-white border-b-[8px] border-b-transparent ml-1"></div>
-            </div>
-        </div>
-        <div class="aspect-square bg-gray-500 overflow-hidden">
-            <img src="/prop.jpg" class="object-cover h-full w-full" />
-        </div>
-        <div class="aspect-square bg-gray-500 overflow-hidden relative">
-             <img src="/prop.jpg" class="object-cover h-full w-full" />
-             <div class="absolute inset-0 flex items-center justify-center bg-black/10">
-                <div class="w-0 h-0 border-t-[8px] border-t-transparent border-l-[12px] border-l-white border-b-[8px] border-b-transparent ml-1"></div>
-            </div>
-        </div>
-        <div class="aspect-square bg-gray-500 overflow-hidden">
-            <img src="/prop.jpg" class="object-cover h-full w-full" />
-        </div>
-      </div>
+      
     </div>
 
     <div class="mt-16 text-center text-[10px] opacity-70 tracking-widest leading-loose font-mono">
-      <p>© 2015–{currentYear} THE HEARNES ADVENTURE PHOTOGRAPHY</p>
+      <p>© 2025–{currentYear} THE 67 PHOTOGRAPHY</p>
       <p>WEB DESIGN BY <a href="https://hsn.is-a.dev/">HASANUR RAHMAN</a></p>
       <div class="mt-4 flex justify-center">
          <span class="inline-block border-b border-[#d9c5b2] w-6 opacity-40"></span>
