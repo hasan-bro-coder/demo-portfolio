@@ -2,9 +2,21 @@
 backend:
   name: git-gateway
   branch: main
-media_folder: "public/images"
-public_folder: "/images"
+
+# media_folder: "public/images"
+# public_folder: "/images"
 folder: "src/content/gallery"
+
+allow_multiple: true
+media_library:
+  name: cloudinary
+  config:
+    multiple: "true"
+    cloud_name: ddsddw7ua
+    api_key: 813753631294118
+    # default_transformations:
+        # - - effect: grayscale
+
 
 collections:
   - name: "gallery"
@@ -14,15 +26,27 @@ collections:
     slug: "{{slug}}"
 
     fields:
-      - { label: "Category Title", name: "title", widget: "string" }
-
+      - { label: "Groupe Title", name: "title", widget: "string" }
+      - { label: "Alternative Image Title", name: "alt", widget: "string" }
+      - { label: "Groupe Detail", name: "detail", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", required: false }
       - label: "Images"
         name: "images"
-        widget: "list"
-        fields:
-          - { label: "Image", name: "src", widget: "image" }
-          - { label: "Alt Text", name: "alt", widget: "string", required: false }
+        widget: "image"
+        choose_url: false
+        # widget: "list"
+        # field:
+        #   label: "Image"
+        #   name: "src"
+        #   widget: "image"
+      # - label: "Images"
+      #   name: "images"
+      #   widget: "image"
+      #   media_library:
+      #     config:
+      #       multiple: true
+      #   fields:
+      #     - { label: "Image", name: "src", widget: "image" }
+      #     - { label: "Alt Text", name: "alt", widget: "string", required: false }
 
       - { label: "Featured", name: "featured", widget: "boolean", default: false }
-
-      - { label: "Date", name: "date", widget: "datetime", required: false }

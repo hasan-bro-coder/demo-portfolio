@@ -1,0 +1,82 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Contact from "../../components/contact.astro";
+
+export async function getStaticPaths() {
+  return (await getCollection("gallery")).map((d)=>{return { params: {title:d.data.title+" images", gallery: encodeURI(d.data.title)}}})
+  || [
+    { params: { gallery: "featured" }}
+  ];
+}
+
+const { gallery } = Astro.params;
+
+const images = (await getCollection("gallery")).filter(d=>d.data.title == gallery);
+
+
+
+
+---
+
+<Layout title="Gallery">
+  <main class="dark min-h-screen pt-24 pb-16 px-6 md:px-12">
+    
+    <header id="gallery-header" class="text-center mb-16 md:mb-32">
+      <h1 class="text-4xl md:text-5xl tracking-widest uppercase mb-4 font-serif">
+        Adventures Captured
+      </h1>
+      <p class="text-[#d9c5b2]/60 text-sm md:text-base max-w-lg mx-auto italic">
+        A curation of moments from the wild.
+      </p>
+    </header>
+
+    <div class="gallery-wrapper max-w-7xl mx-auto columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+      {
+        images.map((category) =>
+          category.data.images.map((item) => (
+            <div class="gallery-item break-inside-avoid opacity-0 translate-y-8 group overflow-hidden border border-[#d9c5b2]/10 shadow-lg cursor-pointer bg-[#5a483b]">
+              <img
+                src={item}
+                alt="Gallery Image"
+                loading="lazy"
+                class="w-full h-auto object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
+              />
+            </div>
+          ))
+        )
+      }
+    </div>
+
+    <div class="mt-20 flex justify-center opacity-30">
+      <span class="inline-block border-b border-[#d9c5b2] w-12"></span>
+    </div>
+  </main>
+  <Contact />
+</Layout>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Using .batch is much better for performance when you have many images
+  ScrollTrigger.batch(".gallery-item", {
+    start: "top 95%",
+    onEnter: (elements) => {
+      gsap.to(elements, {
+        opacity: 1,
+        y: 0,
+        stagger: 0.15,
+        duration: 0.8,
+        ease: "power2.out",
+        overwrite: true
+      });
+    },
+    // Optional: Reset when scrolling back up so they "re-animate"
+    onLeaveBack: (elements) => {
+      gsap.set(elements, { opacity: 0, y: 30 });
+    }
+  });
+</script>

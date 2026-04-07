@@ -1,7 +1,7 @@
 ---
 import About from '../components/about.astro';
 import Contact from '../components/contact.astro';
-import Gallery from '../components/gallery2.astro';
+import Gallery from '../components/gallery.astro';
 import Hero from '../components/hero.astro';
 import Layout from '../layouts/Layout.astro';
 ---
@@ -17,7 +17,7 @@ import Layout from '../layouts/Layout.astro';
 	import gsap from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   gsap.registerPlugin(ScrollTrigger);
-  gsap.utils.toArray(".con").forEach(el=>
+  gsap.utils.toArray(".con").forEach((el:any)=>
   gsap.to(el, {
     scrollTrigger: {
 	  start: "top top",

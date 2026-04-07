@@ -1,13 +1,17 @@
 ---
 ---
-<div class="con w-screen h-screen relative overflow-hidden">
+<div id="contact" class="con w-screen min-h-screen h-[150vh] md:h-screen relative overflow-hidden">
 <section id="contact" class="w-screen py-24 flex flex-col items-center">
   <h1 class="text-6xl mt-8 mb-16">Contact</h1>
 
   <form
     id="contact-form"
     class="columns-1 md:columns-2 gap-6 w-[80vw] max-w-3xl"
+    data-netlify="true"
+    netlify-honeypot="bot-field"
+    onsubmit="alert('form sent successfully')"
   >
+    <input type="hidden" name="contact-form" value="contact" />
     <div class="mb-6 break-inside-avoid">
       <label class="block text-sm mb-2 opacity-60">Name</label>
       <input

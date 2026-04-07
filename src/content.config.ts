@@ -6,14 +6,11 @@ const gallery = defineCollection({
   loader: glob({ base: './src/content/gallery', pattern: "**/*.md" }),
   schema: z.object({
     title: z.string(), // category name (e.g. Wedding)
-    featured: z.boolean().optional(),
-    images: z.array(
-      z.object({
-        src: z.string(),
-        alt: z.string().optional(),
-      })
-    ),
+    alt: z.string(), // category name (e.g. Wedding)
+    detail:z.string().optional(),
     date: z.coerce.date().optional(),
+    images: z.array(z.string()),
+    featured: z.boolean().optional(),
   }),
 });
 

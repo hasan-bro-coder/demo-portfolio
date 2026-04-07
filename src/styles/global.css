@@ -18,6 +18,12 @@
   font-display: swap; /* Improves performance by showing fallback font while loading */
 }
 
+.font-ztotez{
+  font-family: 'ZTOtez';
+}
+.font-colitezserif{
+  font-family: 'colitezserif';
+}
 .dark {
   color-scheme: dark;
   background-color: #1b1d1e;
@@ -34,7 +40,7 @@ html,
 body {
   margin: 0;
   width: 100%;
-  height: 400vh;
+  height: 100%;
   font-family: "EB Garamond", serif;
 }
 
