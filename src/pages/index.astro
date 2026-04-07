@@ -12,18 +12,3 @@ import Layout from '../layouts/Layout.astro';
 	<Gallery></Gallery>
 	<Contact></Contact>
 </Layout>
-
-<script>
-	import gsap from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
-  gsap.registerPlugin(ScrollTrigger);
-  gsap.utils.toArray(".con").forEach((el:any)=>
-  gsap.to(el, {
-    scrollTrigger: {
-	  start: "top top",
-      trigger: el,
-	  snap:1,
-      markers: true,
-    },
-  }));
-</script>
